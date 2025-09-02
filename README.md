@@ -24,7 +24,6 @@ We sincerely thank the following individuals for their invaluable assistance:
 
 If you have any questions, please contact:
 
-**[Fenglei Zhang](https://github.com/RaFenglei/)**  
-Email: [zhangfenglei2001@163.com](mailto:zhangfenglei2001@163.com) or [zhangfenglei@mail.nwpu.edu.cn](mailto:zhangfenglei@mail.nwpu.edu.cn)
+**[Fenglei Zhang](https://github.com/RaFenglei/)**  : [zhangfenglei2001@163.com](mailto:zhangfenglei2001@163.com) or [zhangfenglei@mail.nwpu.edu.cn](mailto:zhangfenglei@mail.nwpu.edu.cn)
 
 ![Pandas](./img/Pandas.jpg)
