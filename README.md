@@ -5,7 +5,7 @@ This repository contains tutorials and workflows for identifying specific marker
 - Inducing PMC2 to PMC4 conversion
 - Inducing human MSCs to deer ABPC-like cells
 
-This work was completed collaboratively by **Fenglei Zhang** (Master) and **Jinrui Ma** (PhD candidate) in July and August 2025 at the [School of Ecology and Environment](https://see.nwpu.edu.cn/), [Northwestern Polytechnical University](https://www.nwpu.edu.cn/), under the supervision of **Prof. [Wen Wang](https://teacher.nwpu.edu.cn/0147C7EFF01849A49FF04A590BCCBC58.html)**, **Prof. [Tongtong Zhang](https://teacher.nwpu.edu.cn/2024010091.html)**, and **Prof. Ruiwen Zhang**.
+This work was completed collaboratively by **Fenglei Zhang** (Master) and **Jinrui Ma** (PhD candidate) in July and August 2025 at the [School of Ecology and Environment](https://see.nwpu.edu.cn/), [Northwestern Polytechnical University](https://www.nwpu.edu.cn/), under the supervision of **Prof. [Wen Wang](https://teacher.nwpu.edu.cn/0147C7EFF01849A49FF04A590BCCBC58.html)**, **Prof. [Tongtong Zhang](https://teacher.nwpu.edu.cn/2024010091.html)**, and **Prof. [Ruiwen Zhang]((https://see.nwpu.edu.cn/szdw1/js/1.htm))**.
 
 ## Acknowledgments
 
