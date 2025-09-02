@@ -1,0 +1,1 @@
+/public/home/wangwen_lab/zhoubotong/soft/conda3/bin/gatk CollectInsertSizeMetrics -H omasum_1.qualiControl/omasum_1.fragmentslength.pdf -M 0.5 -I omasum_1.output/omasum_1.rmdup.bam -O omasum_1.qualiControl/omasum_1.InsertSize.txt 

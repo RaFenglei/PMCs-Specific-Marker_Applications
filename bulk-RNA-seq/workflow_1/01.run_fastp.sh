@@ -1,0 +1,5 @@
+mkdir 01.fastp 01.fastpqs
+for i in `cat /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/00.raw_data/all.name.list`;
+do
+	echo "cd /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/01.fastp; /public/home/wangwen_lab/zhangfenglei/soft/fastp_0_23_4/fastp -i /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/00.raw_data/${i}_1.fq.gz -I /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/00.raw_data/${i}_2.fq.gz -o /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/01.fastp/01.fastp/${i}_fastp_1.fq.gz -O /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/01.fastp/01.fastp/${i}_fastp_2.fq.gz -h /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/01.fastp/01.fastp/${i}_fastp.html -j /data02/zhangfenglei/project/08.telomere/01.ABPC/01.RNA-seq/01.fastp/01.fastp/${i}_fastp.json -M 40 -l 50" > 01.fastpqs/${i}.sheep.sh
+done

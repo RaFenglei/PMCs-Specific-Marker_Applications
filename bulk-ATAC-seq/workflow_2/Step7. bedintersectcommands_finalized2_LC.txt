@@ -1,0 +1,57 @@
+###To get intersection of 50bp bin table from Multi BigWig Summary with the strict peak lists.
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctrchip_peaks_bed.bed > 50bpbintable_strict_ctr_all.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_l1kdchip_peaks_bed.bed > 50bpbintable_strict_l1kd_all.bed
+
+
+###To get common regions between ctr-ChIP rep 1-2 and L1KD ChIP 1-2.
+bedtools intersect -wa -a ctr-ChIP-rep2_peaks_blacklisted.bed -b ctr-ChIP-rep1_peaks_blacklisted.bed > ctr-ChIP-rep2_BFpeaksinrep1.bed
+bedtools intersect -wa -a ctr-ChIP-rep1_peaks_blacklisted.bed -b ctr-ChIP-rep2_peaks_blacklisted.bed > ctr-ChIP-rep1_BFpeaksinrep2.bed
+bedtools intersect -wa -a L1KD-ChIP-rep2_peaks_blacklisted.bed -b L1KD-ChIP-rep1_peaks_blacklisted.bed > L1KD-ChIP-rep1_BFpeaksinrep1.bed 
+bedtools intersect -wa -a L1KD-ChIP-rep1_peaks_blacklisted.bed -b L1KD-ChIP-rep2_peaks_blacklisted.bed > L1KD-ChIP-rep1_BFpeaksinrep2.bed 
+ 
+
+"###To get list of H3k27me3 regions by combining ctr-ChIP strict peaks, and L1KD-ChIP peaks after comparing the replicates within condition:"
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctrchip_peaks_bed.bed strict_l1kdchip_peaks_bed.bed > final50bpbincpmtable_allstrictregionscombined.bed
+
+
+###To get the intersections of our strict peak lists with the LAD and NAD region bed files. 
+bedtools intersect -wa -a strict_ctrchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_NAD-only.bed > strict_ctr_nadsonly.bed
+bedtools intersect -wa -a strict_ctrchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_LAD-only.bed > strict_ctr_ladsonly.bed
+bedtools intersect -wa -a strict_ctrchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_LAD-NAD_Overlaps.bed > strict_ctr_ladsnadsoverlaps.bed
+bedtools intersect -wa -a strict_ctrchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_nonLAD-NAD.bed > strict_ctr_NoLadsNads.bed
+bedtools intersect -wa -a strict_l1kdchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_NAD-only.bed > strict_l1kd_nadsonly.bed
+bedtools intersect -wa -a strict_l1kdchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_LAD-only.bed > strict_l1kd_ladsonly.bed
+bedtools intersect -wa -a strict_l1kdchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_LAD-NAD_Overlaps.bed > strict_l1kd_ladsnadsoverlaps.bed
+bedtools intersect -wa -a strict_l1kdchip_peaks_bed.bed -b finalized_LADNADbeds/2312naive_nonLAD-NAD.bed > strict_l1kd_NoLadsNads.bed
+
+##To intersect above set of files with the 50bp bin table from Multi BigWig Summary.
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctr_nadsonly.bed > 50bpbintable_strict_ctr_nadsonly.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctr_ladsonly.bed > 50bpbintable_strict_ctr_ladsonly.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctr_ladsnadsoverlaps.bed > 50bpbintable_strict_ctr_ladsnadsoverlaps.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctr_NoLadsNads.bed > 50bpbintable_strict_ctr_NoLadsNads.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_l1kd_nadsonly.bed > 50bpbintable_strict_l1kd_nadsonly.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_l1kd_ladsonly.bed > 50bpbintable_strict_l1kd_ladsonly.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_l1kd_ladsnadsoverlaps.bed > 50bpbintable_strict_l1kd_ladsnadsoverlaps.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_l1kd_NoLadsNads.bed > 50bpbintable_strict_l1kd_NoLadsNads.bed
+
+
+"###For plot 1, the box plots of K27me3 strict peaks split into LADs and NADs regions, we intersect the 50bp bin table that has our strict subset with the LADs and NADs files."
+# bedtools intersect -wa -a final50bpbincpmtable_allstrictregionscombined.bed -b finalized_LADNADbeds/2312naive_NAD-only.bed > final50bpbincpmtable_allstrictregionscombined_nadsonly.bed
+# bedtools intersect -wa -a final50bpbincpmtable_allstrictregionscombined.bed -b finalized_LADNADbeds/2312naive_LAD-only.bed > final50bpbincpmtable_allstrictregionscombined_ladsonly.bed
+# bedtools intersect -wa -a final50bpbincpmtable_allstrictregionscombined.bed -b finalized_LADNADbeds/2312naive_LAD-NAD_Overlaps.bed > final50bpbincpmtable_allstrictregionscombined_ladsnadsoverlaps.bed
+# bedtools intersect -wa -a final50bpbincpmtable_allstrictregionscombined.bed -b finalized_LADNADbeds/2312naive_nonLAD-NAD.bed > final50bpbincpmtable_allstrictregionscombined_NoLadsNads.bed
+
+"#Also, for the subplots to go with plot 1:"
+#our strict subsets with the lads and nads files separately
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctrchip_peaks_bed.bed strict_l1kdchip_peaks_bed.bed > final50bpbincpmtable_allstrictregionscombined.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_ctrchip_peaks_bed.bed > 50bpbintable_strict_ctr.bed
+bedtools intersect -wa -a option1tablewithmeansNAs_noHeader.bed -b strict_l1kdchip_peaks_bed.bed > 50bpbintable_strict_l1kd.bed
+#then:
+bedtools intersect -wa -a 50bpbintable_strict_ctr.bed -b finalized_LADNADbeds/2312naive_NAD-only.bed > 50bpbintable_strict_ctr_nadsonly.bed
+bedtools intersect -wa -a 50bpbintable_strict_ctr.bed -b finalized_LADNADbeds/2312naive_LAD-only.bed > 50bpbintable_strict_ctr_lads_only.bed
+bedtools intersect -wa -a 50bpbintable_strict_ctr.bed -b finalized_LADNADbeds/2312naive_LAD-NAD_Overlaps.bed > 50bpbintable_strict_ctr_ladsnadsoverlaps_only.bed
+bedtools intersect -wa -a 50bpbintable_strict_ctr.bed -b finalized_LADNADbeds/2312naive_nonLAD-NAD.bed > 50bpbintable_strict_ctr_nonladnads_only.bed
+bedtools intersect -wa -a 50bpbintable_strict_l1kd.bed -b finalized_LADNADbeds/2312naive_NAD-only.bed > 50bpbintable_strict_l1kd_nads_only.bed
+bedtools intersect -wa -a 50bpbintable_strict_l1kd.bed -b finalized_LADNADbeds/2312naive_LAD-only.bed > 50bpbintable_strict_l1kd_lads_only.bed
+bedtools intersect -wa -a 50bpbintable_strict_l1kd.bed -b finalized_LADNADbeds/2312naive_LAD-NAD_Overlaps.bed > 50bpbintable_strict_l1kd_ladsnadsoverlaps_only.bed
+bedtools intersect -wa -a 50bpbintable_strict_l1kd.bed -b finalized_LADNADbeds/2312naive_nonLAD-NAD.bed > 50bpbintable_strict_l1kd_nonladnads_only.bed

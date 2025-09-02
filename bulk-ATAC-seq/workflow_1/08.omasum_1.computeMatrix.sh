@@ -1,0 +1,1 @@
+computeMatrix reference-point --referencePoint TSS -S omasum_1.output/omasum_1.rmdup.bw -R /data02/zhangfenglei/project/01.omasum/03.ATAC/01.cattle/02.2025_06_05/00.rawdata/cattle_tss_points.bed -b 2000 -a 2000 -out omasum_1.qualiControl/omasum_1.scale_regions.tab.gz --skipZeros --missingDataAsZero
